@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 const SITE_URL = 'https://astro-starter-portfolio.vercel.app';
 
 export default defineConfig({
-  site: SITE_URL,
+  site: 'https://0hsamm.github.io',
 
   integrations: [sitemap()],
 
