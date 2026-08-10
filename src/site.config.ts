@@ -1,7 +1,7 @@
 // Edit this file to re-label the entire site. Header, Footer, the homepage
 // and SEO defaults all read from here instead of hardcoding copy.
 export const SITE = {
-  name: 'John Doe',
+  name: 'Samuel López',
   role: 'Product design & frontend engineering',
   email: 'johndoe@example.com',
   tagline: 'I design and build interfaces that hold up under real use.',
