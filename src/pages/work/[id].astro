@@ -17,7 +17,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, summary, role, date, tags, url, repo } = entry.data;
+const { title, summary, role, date, tags, url, repo, projects } = entry.data;
 const { Content } = await render(entry);
 
 const formattedDate = formatDate(date);
@@ -26,7 +26,7 @@ const formattedDate = formatDate(date);
 <BaseLayout title={title} description={summary}>
   <article class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
     <a href="/work" class="text-ink-soft hover:text-signal font-mono text-xs transition-colors">
-      ← All work
+      ← Todo el trabajo
     </a>
 
     <h1 class="font-display text-ink mt-6 max-w-2xl text-3xl font-medium sm:text-4xl">
@@ -36,8 +36,8 @@ const formattedDate = formatDate(date);
     <dl
       class="border-line text-ink-soft mt-6 flex flex-wrap gap-x-8 gap-y-2 border-y py-4 font-mono text-xs"
     >
-      <div><dt class="inline">Role —</dt><dd class="inline">{role}</dd></div>
-      <div><dt class="inline">Date —</dt><dd class="inline">{formattedDate}</dd></div>
+      <div><dt class="inline">Rol —</dt><dd class="inline">{role}</dd></div>
+      <div><dt class="inline">Fecha —</dt><dd class="inline">{formattedDate}</dd></div>
       {
         tags.length > 0 && (
           <div>
@@ -52,11 +52,51 @@ const formattedDate = formatDate(date);
       <Content />
     </div>
 
+    {
+      projects && projects.length > 0 && (
+        <div class="mt-12">
+          <h2 class="font-display text-ink text-xl font-medium">Proyectos</h2>
+          <div class="mt-6 grid gap-6 sm:grid-cols-2">
+            {projects.map((project) => (
+              <div class="border-line overflow-hidden rounded-lg border">
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    class="aspect-video w-full object-cover"
+                  />
+                )}
+
+                <div class="p-5">
+                  <h3 class="font-display text-ink text-base font-medium">{project.name}</h3>
+                  <p class="text-ink-soft mt-2 text-sm">{project.description}</p>
+                  {project.technologies && project.technologies.length > 0 && (
+                    <p class="text-ink-soft mt-3 font-mono text-xs">
+                      {project.technologies.join(', ')}
+                    </p>
+                  )}
+                  {project.link && (
+                    <a>
+                      href={project.link}
+                      class="text-signal mt-3 inline-block font-mono text-xs hover:underline"
+                      target="_blank"
+                    >
+                      Ver proyecto →
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
     <div class="mt-10 flex flex-wrap gap-3">
       {
         url && (
           <Button href={url} variant="solid">
-            Visit live →
+            Visitalo →
           </Button>
         )
       }

@@ -19,6 +19,15 @@ const work = defineCollection({
       repo: z.url().optional(),
       featured: z.boolean().default(false),
       draft: z.boolean().default(false),
+      projects: z.array(
+      z.object({
+        name: z.string(),
+        description: z.string(),
+        technologies: z.array(z.string()).optional(),
+        image: z.string().optional(),
+        link: z.string().url().optional(),
+      })
+    ).optional(),
     }),
 });
 

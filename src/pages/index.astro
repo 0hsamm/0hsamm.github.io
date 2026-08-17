@@ -15,27 +15,37 @@ const selected = [...featured, ...rest].slice(0, 5);
 
 <BaseLayout title={SITE.name}>
   <section class="mx-auto max-w-3xl px-6 pt-16 pb-20 sm:pt-24">
-    <p class="text-ink-soft mb-6 inline-flex items-center gap-2 font-mono text-xs">
-      <span class="bg-signal h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
-      {SITE.status}
-    </p>
+  <div class="flex flex-col items-start gap-10 sm:flex-row sm:items-center sm:justify-between">
+    <div class="flex-1">
+      <p class="text-ink-soft mb-6 inline-flex items-center gap-2 font-mono text-xs">
+        <span class="bg-signal h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
+        {SITE.status}
+      </p>
 
-    <h1 class="font-display text-ink max-w-2xl text-4xl leading-[1.1] font-medium sm:text-5xl">
-      {SITE.tagline}
-    </h1>
+      <h1 class="font-display text-ink max-w-2xl text-4xl leading-[1.1] font-medium sm:text-5xl">
+        {SITE.tagline}
+      </h1>
 
-    <p class="text-ink-soft mt-6 max-w-md">
-      {SITE.role} — based on the work below, not a list of buzzwords.
-    </p>
+      <p class="text-ink-soft mt-6 max-w-md">
+        {SITE.role}
+      </p>
 
-    <div class="mt-8 flex flex-wrap items-center gap-3">
-      <Button href="/work" variant="solid">View the work →</Button>
-      <Button href="#contact" variant="ghost">Say hello</Button>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <Button href="/work" variant="solid">Ver el trabajo →</Button>
+        <Button href="#contact" variant="ghost">Di hola</Button>
+      </div>
     </div>
-  </section>
+
+    <img
+      src={SITE.avatar}
+      alt={SITE.name}
+      class="h-40 w-40 shrink-0 rounded-full object-cover sm:h-48 sm:w-48"
+    />
+  </div>
+</section>
 
   <section id="work" class="mx-auto max-w-3xl px-6 pb-20">
-    <SectionHeading eyebrow="Selected work" count={allWork.length} />
+    <SectionHeading eyebrow="Trabajo seleccionado" count={allWork.length} />
     <div>
       {selected.map((entry) => <WorkRow entry={entry} />)}
     </div>
@@ -46,7 +56,7 @@ const selected = [...featured, ...rest].slice(0, 5);
             href="/work"
             class="text-ink-soft hover:text-signal font-mono text-xs transition-colors"
           >
-            View all {allWork.length} projects →
+            Mirar los {allWork.length} proyectos →
           </a>
         </div>
       )
@@ -54,19 +64,19 @@ const selected = [...featured, ...rest].slice(0, 5);
   </section>
 
   <section id="about" class="mx-auto max-w-3xl px-6 pb-20">
-    <SectionHeading eyebrow="About" />
+    <SectionHeading eyebrow="Sobre mi" />
     <p class="text-ink-soft max-w-xl">
       {SITE.description}
     </p>
     <a href="/about" class="text-signal mt-4 inline-block font-mono text-xs hover:underline">
-      More about how I work →
+      Más de como trabajo →
     </a>
   </section>
 
   <section id="contact" class="mx-auto max-w-3xl px-6 pb-24">
-    <SectionHeading eyebrow="Let's talk" />
+    <SectionHeading eyebrow="Hablemos" />
     <p class="font-display text-ink max-w-lg text-2xl sm:text-3xl">
-      Have something worth building?
+      Ponte en contacto
     </p>
     <a
       href={`mailto:${SITE.email}`}

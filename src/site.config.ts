@@ -1,22 +1,22 @@
 // Edit this file to re-label the entire site. Header, Footer, the homepage
 // and SEO defaults all read from here instead of hardcoding copy.
 export const SITE = {
-  name: 'Samuel López',
-  role: 'Product design & frontend engineering',
-  email: 'johndoe@example.com',
-  tagline: 'I design and build interfaces that hold up under real use.',
+  name: 'Samuel Eduardo López Cárdenas',
+  role: 'Estudiante de ingenieria de sistemas, desarrollador de software y desarrollador web',
+  email: 'sedlopez@unbosque.edu.co',
+  tagline: 'Sobre mí',
   description:
-    'Portfolio of John Doe — product design and frontend engineering, with an emphasis on speed, clarity, and the details most people skip.',
-  status: 'Currently building at Studio Co · open to new work, Q3 2026',
+    'Portafolio de Samuel López, estudiante de ingenieria de sistemas de la Universidad El Bosque.',
+  status: 'Actualmente estudiante de la Universidad El Bosque',
+  avatar: '/img/foto.jpeg',
   social: [
-    { label: 'GitHub', href: 'https://github.com/your-username' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-username' },
-    { label: 'X', href: 'https://x.com/your-username' },
+    { label: 'GitHub', href: 'https://github.com/0hsamm' },
+   
   ],
   locale: 'en',
 } as const;
 
 export const NAV_LINKS = [
-  { label: 'Work', href: '/work' },
-  { label: 'About', href: '/about' },
+  { label: 'Trabajo', href: '/work' },
+  { label: 'Sobre mi', href: '/about' },
 ] as const;

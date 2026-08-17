@@ -10,11 +10,11 @@ const allWork = (await getCollection('work', ({ data }) => !data.draft)).sort(
 ---
 
 <BaseLayout
-  title="Work"
-  description="Selected projects in product design and frontend engineering."
+  title="Trabajo"
+  description="Proyectos seleccionados en diseño de producto e ingeniería frontend."
 >
   <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
-    <SectionHeading eyebrow="All work" count={allWork.length} />
+    <SectionHeading eyebrow="Todos los proyectos" count={allWork.length} />
     <div>
       {allWork.map((entry) => <WorkRow entry={entry} />)}
     </div>
